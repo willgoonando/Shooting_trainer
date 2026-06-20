@@ -15,4 +15,6 @@ urlpatterns = [
     path('api/v1/courses/', include('apps.courses.urls')),
     path('api/v1/ota/', include('apps.ota.urls')),
     path('api/v1/ai/', include('apps.ai_coach.urls')),
+    # 页面级聚合接口（文档 9.0）
+    path('api/page/', include('apps.pages.urls')),
 ]

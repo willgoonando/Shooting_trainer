@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'apps.courses',
     'apps.ota',
     'apps.ai_coach',
+    'apps.pages',
 ]
 
 MIDDLEWARE = [
