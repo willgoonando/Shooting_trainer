@@ -101,6 +101,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# 媒体文件（用户上传的图片等）
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # 自定义用户模型

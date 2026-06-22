@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
@@ -18,3 +20,7 @@ urlpatterns = [
     # 页面级聚合接口（文档 9.0）
     path('api/page/', include('apps.pages.urls')),
 ]
+
+# 开发环境：Django 直接 serve 用户上传的媒体文件
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
