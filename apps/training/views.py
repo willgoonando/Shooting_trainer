@@ -22,7 +22,9 @@ class TrainingSessionViewSet(viewsets.ModelViewSet):
     serializer_class = TrainingSessionSerializer
 
     def get_queryset(self):
-        return TrainingSession.objects.filter(user=self.request.user).prefetch_related('shots', 'result')
+        return TrainingSession.objects.filter(
+            user=self.request.user
+        ).select_related('user', 'drill_template', 'target', 'result').prefetch_related('shots')
 
     def get_serializer_class(self):
         if self.action == 'create':

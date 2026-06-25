@@ -35,8 +35,8 @@ class AIResultViewSet(viewsets.GenericViewSet):
         from apps.training.models import TrainingSession
         sessions = TrainingSession.objects.filter(
             user=request.user, status='completed'
-        ).prefetch_related('result', 'motion_score', 'accuracy_score',
-                           'overall_score', 'diagnosis', 'recommendation')[:100]
+        ).select_related('result', 'motion_score', 'accuracy_score',
+                         'overall_score', 'diagnosis', 'recommendation')[:100]
 
         data = []
         for session in sessions:
